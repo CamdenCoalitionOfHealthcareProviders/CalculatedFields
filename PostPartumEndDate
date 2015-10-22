@@ -1,0 +1,13 @@
+if(
+  and(
+    isblank(DeliveredDate),
+    isblank(EstimatedPregTerminationDate)
+  ), 
+  dateadd(EDCDT, 91),
+if(
+  isnotblank(DeliveredDate),
+  dateadd(DeliveredDate, 91),
+if(
+  isnotblank(EstimatedPregTerminationDate),
+  dateadd(EstimatedPregTerminationDate, 91),""
+)))
