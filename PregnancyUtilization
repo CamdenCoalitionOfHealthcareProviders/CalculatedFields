@@ -1,46 +1,46 @@
-if(
-  and(
-    isblank(DeliveredDate),
-    isblank(EstimatedPregTerminationDate),
-    AdmitDate > LMPDT,
-    AdmitDate < EDCDT
-  ),
-  "Active PRA Utilization",
-if(
-  and(
-    isnotblank(DeliveredDate),
-    AdmitDate > LMPDT,
-    AdmitDate < DeliveredDate
-  ),
-  "Active PRA Utilization",
-if(
-  and(
-    isnotblank(EstimatedPregTerminationDate),
-    AdmitDate > LMPDT, 
-    AdmitDate < EstimatedPregTerminationDate
-  ),
-  "Active PRA Utilization",
-if(
-  and(
-    isblank(DeliveredDate),
-    isblank(EstimatedPregTerminationDate),
-    AdmitDate > EDCDT,
-    AdmitDate < PostPartumEndDate
-  ),
-  "Post Partum Utilization",
-if(
-  and(
-    isnotblank(DeliveredDate),
-    AdmitDate > DeliveredDate,
-    AdmitDate < PostPartumEndDate
-  ),
-  "Post Partum Utilization",
-if(
-  and(
-    isnotblank(EstimatedPregTerminationDate),
-    AdmitDate > EstimatedPregTerminationDate,
-    AdmitDate < PostPartumEndDate
-  ),
-  "Post Partum Utilization",
-  ""
+if( 
+  and( 
+    isblank(DeliveredDate), 
+    isblank(EstimatedPregTerminationDate), 
+    AdmitDate gt LMPDT, 
+    AdmitDate lt EDCDT 
+  ), 
+    "Active PRA Utilization", 
+if( 
+  and( 
+    isnotblank(DeliveredDate), 
+    AdmitDate gt LMPDT, 
+    AdmitDate lt DeliveredDate
+    ), 
+  "Active PRA Utilization", 
+if( 
+  and( 
+    isnotblank(EstimatedPregTerminationDate), 
+    AdmitDate gt LMPDT, 
+    AdmitDate lt EstimatedPregTerminationDate
+  ), 
+  "Active PRA Utilization", 
+if( 
+  and( 
+    isblank(DeliveredDate), 
+    isblank(EstimatedPregTerminationDate), 
+    AdmitDate gt EDCDT, 
+    AdmitDate lt PostPartumEndDate
+  ), 
+  "Post Partum Utilization", 
+if( 
+  and( 
+    isnotblank(DeliveredDate), 
+    AdmitDate gt DeliveredDate, 
+    AdmitDate lt PostPartumEndDate
+  ), 
+  "Post Partum Utilization", 
+if( 
+  and( 
+    isnotblank(EstimatedPregTerminationDate), 
+    AdmitDate gt EstimatedPregTerminationDate, 
+    AdmitDate lt PostPartumEndDate
+  ), 
+  "Post Partum Utilization", 
+  "" 
 ))))))
