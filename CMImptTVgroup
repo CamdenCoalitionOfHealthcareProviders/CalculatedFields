@@ -1,23 +1,23 @@
-if(
+if( 
   or( 
     and( 
       (DaysSincePreEnrollment)<183, 
       ischecked(Hospital,"Cooper"), 
       isblank(Enrollment Date), 
       isblank(Reason Not Enrolled), 
-      not(
-        contains("Control",RCTStudyGroup)
-      ),
-      isblank(EngagePostControl),
-      isblank(InSAR),
-      isblank(SJBHCshare)
-    ),
-    and(
-      contains("CUH",LastReadmissionFacility),
-      isblank(SJBHCshare)
-    )
+      not( 
+        contains("Control",RCTStudyGroup) 
+      ), 
+      isblank(EngagePostControl), 
+      isblank(InSAR), 
+      isblank(SJBHCshare) 
+    ), 
+    and( 
+      contains("CUH",LastReadmissionFacility), 
+      isblank(SJBHCshare) 
+    ) 
   ), 
-  "CMIUHI",
+  "CMIUHI", 
   if( 
     or( 
       and( 
@@ -25,19 +25,27 @@ if(
         ischecked(Hospital,"Cooper"), 
         isblank(Enrollment Date), 
         isblank(Reason Not Enrolled), 
-        not(
-          contains("Control",RCTStudyGroup)
-        ),
-        isblank(EngagePostControl),
-        isblank(InSAR),
-        isselected(SJBHCshare,"Yes")
-      ),
+        not( 
+          contains("Control",RCTStudyGroup) 
+        ), 
+        isblank(EngagePostControl), 
+        isblank(InSAR), 
+        isselected(SJBHCshare,"Yes") 
+      ), 
       and( 
-        contains("CUH",LastReadmissionFacility),
-        isselected(SJBHCshare, "Yes")
-      )
+        contains("CUH",LastReadmissionFacility), 
+        isselected(SJBHCshare, "Yes") 
+      ) 
     ), 
-    "CMIUHIandSJBHC",
-    "CCHP"
+    "CMIUHIandSJBHC", 
+    if( 
+      and( 
+        isblank(RCTStudyGroup), 
+        isblank(LastReadmissionFacility), 
+        isselected(SJBHCshare, "Yes")
+      ), 
+      "SJBHC", 
+      "CCHP" 
+    ) 
   )
 )
