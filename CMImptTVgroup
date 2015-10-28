@@ -1,0 +1,51 @@
+if(
+  or( 
+    and( 
+      (DaysSincePreEnrollment)<183, 
+      ischecked(Hospital,"Cooper"), 
+      isblank(Enrollment Date), 
+      isblank(Reason Not Enrolled), 
+      not(contains("Control",RCTStudyGroup)),
+      isblank(EngagePostControl),
+      isblank(SJBHCshare),
+      isblank(InSAR) 
+    ),
+    and( 
+      (DaysSincePreEnrollment)<183, 
+      ischecked(Hospital,"Cooper"), 
+      isblank(Enrollment Date), 
+      isblank(Reason Not Enrolled), 
+      contains("Control",RCTStudyGroup)),
+      ischecked(EngagePostControl,"Yes"),
+      isblank(SJBHCshare),
+      isblank(InSAR) 
+    ),
+    contains("CUH",(childconcatenatedistinct("Readmissions","UniqueID", "TrueReadmissionFacility"))) 
+  ), 
+  "CMIUHI",
+  if( 
+    or( 
+      and( 
+        (DaysSincePreEnrollment)<183, 
+        ischecked(Hospital,"Cooper"), 
+        isblank(Enrollment Date), 
+        isblank(Reason Not Enrolled), 
+        not(contains("Control",RCTStudyGroup)),
+        isblank(EngagePostControl),
+        isselected(SJBHCshare,"Yes"),
+        isblank(InSAR) 
+      ),
+      and( 
+        (DaysSincePreEnrollment)<183, 
+        ischecked(Hospital,"Cooper"), 
+        isblank(Enrollment Date), 
+        isblank(Reason Not Enrolled), 
+        contains("Control",RCTStudyGroup)),
+        ischecked(EngagePostControl,"Yes"),
+        isselected(SJBHCshare,"Yes"),
+        isblank(InSAR) 
+      ),
+      contains("CUH",(childconcatenatedistinct("Readmissions","UniqueID", "TrueReadmissionFacility"))) 
+    ), 
+    "CMIUHIandSJBHC",
+  "CCHP"))
