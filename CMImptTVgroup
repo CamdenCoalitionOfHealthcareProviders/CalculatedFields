@@ -10,11 +10,11 @@ if(
       ), 
       isblank(EngagePostControl), 
       isblank(InSAR), 
-      isblank(SJBHCshare) 
+      isblank(SJBHRshare) 
     ), 
     and( 
       contains("CUH",LastReadmissionFacility), 
-      isblank(SJBHCshare) 
+      isblank(SJBHRshare) 
     ) 
   ), 
   "CMIUHI", 
@@ -30,20 +30,20 @@ if(
         ), 
         isblank(EngagePostControl), 
         isblank(InSAR), 
-        isselected(SJBHCshare,"Yes") 
+        isselected(SJBHRshare,"Yes") 
       ), 
       and( 
         contains("CUH",LastReadmissionFacility), 
-        isselected(SJBHCshare, "Yes") 
+        isselected(SJBHRshare, "Yes") 
       ) 
     ), 
-    "CMIUHIandSJBHC", 
+    "CMIUHIandSJBHR", 
     if( 
       and( 
         isblank(LastReadmissionFacility), 
-        isselected(SJBHCshare, "Yes")
+        isselected(SJBHRshare, "Yes")
       ), 
-      "SJBHC", 
+      "SJBHR", 
       "CCHP" 
     ) 
   )
