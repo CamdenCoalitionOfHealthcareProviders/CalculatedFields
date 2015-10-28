@@ -5,22 +5,17 @@ if(
       ischecked(Hospital,"Cooper"), 
       isblank(Enrollment Date), 
       isblank(Reason Not Enrolled), 
-      not(contains("Control",RCTStudyGroup)),
+      not(
+        contains("Control",RCTStudyGroup)
+      ),
       isblank(EngagePostControl),
-      isblank(SJBHCshare),
-      isblank(InSAR) 
+      isblank(InSAR),
+      isblank(SJBHCshare)
     ),
-    and( 
-      (DaysSincePreEnrollment)<183, 
-      ischecked(Hospital,"Cooper"), 
-      isblank(Enrollment Date), 
-      isblank(Reason Not Enrolled), 
-      contains("Control",RCTStudyGroup)),
-      ischecked(EngagePostControl,"Yes"),
-      isblank(SJBHCshare),
-      isblank(InSAR) 
-    ),
-    contains("CUH",(childconcatenatedistinct("Readmissions","UniqueID", "TrueReadmissionFacility"))) 
+    and(
+      contains("CUH",LastReadmissionFacility),
+      isblank(SJBHCshare)
+    )
   ), 
   "CMIUHI",
   if( 
@@ -30,22 +25,19 @@ if(
         ischecked(Hospital,"Cooper"), 
         isblank(Enrollment Date), 
         isblank(Reason Not Enrolled), 
-        not(contains("Control",RCTStudyGroup)),
+        not(
+          contains("Control",RCTStudyGroup)
+        ),
         isblank(EngagePostControl),
-        isselected(SJBHCshare,"Yes"),
-        isblank(InSAR) 
+        isblank(InSAR),
+        isselected(SJBHCshare,"Yes")
       ),
       and( 
-        (DaysSincePreEnrollment)<183, 
-        ischecked(Hospital,"Cooper"), 
-        isblank(Enrollment Date), 
-        isblank(Reason Not Enrolled), 
-        contains("Control",RCTStudyGroup)),
-        ischecked(EngagePostControl,"Yes"),
-        isselected(SJBHCshare,"Yes"),
-        isblank(InSAR) 
-      ),
-      contains("CUH",(childconcatenatedistinct("Readmissions","UniqueID", "TrueReadmissionFacility"))) 
+        contains("CUH",LastReadmissionFacility),
+        isselected(SJBHCshare, "Yes")
+      )
     ), 
     "CMIUHIandSJBHC",
-  "CCHP"))
+    "CCHP"
+  )
+)
