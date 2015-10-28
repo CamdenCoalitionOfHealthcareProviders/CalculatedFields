@@ -40,7 +40,6 @@ if(
     "CMIUHIandSJBHC", 
     if( 
       and( 
-        isblank(RCTStudyGroup), 
         isblank(LastReadmissionFacility), 
         isselected(SJBHCshare, "Yes")
       ), 
