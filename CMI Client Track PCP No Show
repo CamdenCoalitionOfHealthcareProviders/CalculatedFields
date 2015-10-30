@@ -1,0 +1,26 @@
+if(
+  and( 
+    isnotblank(Encounter Date), 
+    now() gt Encounter Date, 
+    Patient Encounter - Client Present="PCP Visit",
+    Client Present= "No"
+  ), 
+  Encounter Date&"-PCP No Show", 
+
+    if(
+      and( 
+        isnotblank(Encounter Date), 
+        now() gt Encounter Date, 
+        Patient Encounter - Client Present="Initial PCP Visit",
+        Client Present= "No"
+      ), 
+      Encounter Date&"-Initial PCP No Show", 
+
+        if(
+          and( 
+            isnotblank(Encounter Date), 
+            now() gt Encounter Date, 
+            Patient Encounter - Client Present="Re-engagement Initial PCP Visit",
+            Client Present= "No"
+          ), 
+          Encounter Date&"-Re-engagement Initial PCP No Show",""))) 
