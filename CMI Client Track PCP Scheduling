@@ -3,7 +3,9 @@ if(
     isnotblank(Encounter Date), 
     Encounter Date gt Readmission Date, 
     Patient Encounter - Client Present="PCP Visit", 
-    isblank(Client Present) ), 
+    or(
+      isblank(Client Present),
+      Client Present = "Yes")), 
 
   Encounter Date&"-PCP Scheduled", 
 if( 
@@ -11,7 +13,9 @@ if(
     isnotblank(Encounter Date), 
     Encounter Date gt Readmission Date, 
     Patient Encounter - Client Present="Initial PCP Visit", 
-    isblank(Client Present) ), 
+    or(
+      isblank(Client Present)
+      Client Present = "Yes")), 
 
   Encounter Date&"-Initial PCP Scheduled", 
 if( 
@@ -19,6 +23,8 @@ if(
     isnotblank(Encounter Date), 
     Encounter Date gt Readmission Date, 
     Patient Encounter - Client Present="Re-engagement Initial PCP Visit", 
-    isblank(Client Present) ), 
+    or(
+      isblank(Client Present),
+      Client Present = "Yes")), 
 
   Encounter Date&"-Re-engagement Initial PCP Scheduled",""))) 
