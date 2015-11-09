@@ -14,7 +14,7 @@ if(
     Encounter Date gt Readmission Date, 
     Patient Encounter - Client Present="Initial PCP Visit", 
     or(
-      isblank(Client Present)
+      isblank(Client Present),
       Client Present = "Yes")), 
 
   Encounter Date&"-Initial PCP Scheduled", 
