@@ -1,0 +1,35 @@
+if( 
+  or( 
+    and( 
+      parentlookup("UniqueID","Outcome") = "Graduated", 
+      isblank(parentlookup("uniqueID","Re-Engagement Patient")), 
+      AdmitDate gt parentlookup("UniqueID","Outcome Date")), 
+    and( 
+      parentlookup("UniqueID","Re-Engagement Outcome") = "Graduated", 
+      AdmitDate gt parentlookup("UniqueID","Re-engagement Outcome Date"))), 
+    "Graduate Readmission", 
+if( 
+  or( 
+    and( 
+      parentlookup("UniqueID","Outcome") = "Incomplete", 
+      parentlookup("UniqueID","Outcome Reason") = "Lost to follow-up", 
+      isblank(parentlookup("uniqueID","Re-Engagement Patient")), 
+      AdmitDate gt parentlookup("UniqueID","Outcome Date")), 
+    and( 
+      parentlookup("UniqueID","Re-Engagement Outcome") = "Incomplete", 
+      parentlookup("UniqueID","ReEngage Outcome Reason") = "Lost to follow-up", 
+      AdmitDate gt parentlookup("UniqueID","Re-engagement Outcome Date"))), 
+    "Lost to follow-up Readmission", 
+if( 
+  or( 
+    and( 
+      parentlookup("UniqueID","Outcome") = "Incomplete", 
+      not(parentlookup("UniqueID","Outcome Reason") = "Lost to follow-up"), 
+      isblank(parentlookup("uniqueID","Re-Engagement Patient")), 
+      AdmitDate gt parentlookup("UniqueID","Outcome Date")), 
+    and( 
+      parentlookup("UniqueID","Re-Engagement Outcome") = "Incomplete", 
+      not(parentlookup("UniqueID","ReEngage Outcome Reason") = "Lost to follow-up"), 
+      AdmitDate gt parentlookup("UniqueID","Re-engagement Outcome Date"))), 
+  "Non-LTF Incomplete Readmission", 
+  "" )))
