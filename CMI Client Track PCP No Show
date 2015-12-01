@@ -7,6 +7,15 @@ if(
   ), 
   Encounter Date&"-PCP No Show", 
 
+if(
+  and( 
+    isnotblank(Encounter Date), 
+    now() gt Encounter Date, 
+    Patient Encounter - Client Present="PCP Visit",
+    Client Present= "Yes"
+  ), 
+  Encounter Date&"-PCP Attended", 
+
     if(
       and( 
         isnotblank(Encounter Date), 
@@ -15,6 +24,15 @@ if(
         Client Present= "No"
       ), 
       Encounter Date&"-Initial PCP No Show", 
+      
+    if(
+      and( 
+        isnotblank(Encounter Date), 
+        now() gt Encounter Date, 
+        Patient Encounter - Client Present="Initial PCP Visit",
+        Client Present= "Yes"
+      ), 
+      Encounter Date&"-Initial PCP Attended", 
 
         if(
           and( 
@@ -23,4 +41,17 @@ if(
             Patient Encounter - Client Present="Re-engagement Initial PCP Visit",
             Client Present= "No"
           ), 
-          Encounter Date&"-Re-engagement Initial PCP No Show",""))) 
+          Encounter Date&"-Re-engagement Initial PCP No Show",
+          
+          if(
+          and( 
+            isnotblank(Encounter Date), 
+            now() gt Encounter Date, 
+            Patient Encounter - Client Present="Re-engagement Initial PCP Visit",
+            Client Present= "Yes"
+          ), 
+          Encounter Date&"-Re-engagement Initial PCP Attended",
+          
+          ""
+          
+          )))))) 
