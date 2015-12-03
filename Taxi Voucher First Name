@@ -1,0 +1,57 @@
+if(
+  and(
+    isnotblank(ACOlink),
+    isblank(CMIlink),
+    isblank(DSMElink)
+    ),
+    parentlookup("ACOlink", "First Name"),
+    if(
+      and(
+        isblank(ACOlink),
+        isnotblank(CMIlink),
+        isblank(DSMElink)
+        ),
+        parentlookup("CMIlink", "First Name"),
+        if(
+          and(
+            isblank(ACOlink),
+            isblank(CMIlink),
+            isnotblank(DSMElink)
+            ),
+            parentlookup("DSMElink", "First Name"),
+            if(
+              and(
+                isnotblank(ACOlink),
+                isnotblank(CMIlink),
+                isblank(DSMElink)
+                ),
+                parentlookup("CMIlink", "First Name"),
+                if(
+                  and(
+                    isnotblank(ACOlink),
+                    isblank(CMIlink),
+                    isnotblank(DSMElink)
+                    ),
+                    parentlookup("ACOlink", "First Name"),
+                    if(
+                      and(
+                        isblank(ACOlink),
+                        isnotblank(CMIlink),
+                        isnotblank(DSMElink)
+                        ),
+                        parentlookup("CMIlink", "First Name"),
+                        if(
+                          and(
+                            isnotblank(ACOlink),
+                            isnotblank(CMIlink),
+                            isnotblank(DSMElink)
+                            ),
+                            parentlookup("CMIlink", "First Name"),
+                            ""
+                          ) 
+                        )
+                      )
+                    )
+                  )
+                )
+              )
