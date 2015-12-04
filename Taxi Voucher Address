@@ -1,0 +1,57 @@
+if(
+  and(
+    isnotblank(ACOlink),
+    isblank(CMIlink),
+    isblank(DSMElink)
+    ),
+    parentlookup("ACOlink", "Address"),
+    if(
+      and(
+        isblank(ACOlink),
+        isnotblank(CMIlink),
+        isblank(DSMElink)
+        ),
+        parentlookup("CMIlink", "AddressForTaxiVoucher"),
+        if(
+          and(
+            isblank(ACOlink),
+            isblank(CMIlink),
+            isnotblank(DSMElink)
+            ),
+            parentlookup("DSMElink", "AddressForTaxiVoucher"),
+            if(
+              and(
+                isnotblank(ACOlink),
+                isnotblank(CMIlink),
+                isblank(DSMElink)
+                ),
+                parentlookup("CMIlink", "Address"),
+                if(
+                  and(
+                    isnotblank(ACOlink),
+                    isblank(CMIlink),
+                    isnotblank(DSMElink)
+                    ),
+                    parentlookup("ACOlink", "Address"),
+                    if(
+                      and(
+                        isblank(ACOlink),
+                        isnotblank(CMIlink),
+                        isnotblank(DSMElink)
+                        ),
+                        parentlookup("CMIlink", "AddressForTaxiVoucher"),
+                        if(
+                          and(
+                            isnotblank(ACOlink),
+                            isnotblank(CMIlink),
+                            isnotblank(DSMElink)
+                            ),
+                            parentlookup("CMIlink", "Address"),
+                            ""
+                          ) 
+                        )
+                      )
+                    )
+                  )
+                )
+              )
