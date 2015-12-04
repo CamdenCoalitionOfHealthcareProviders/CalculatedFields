@@ -1,0 +1,57 @@
+if(
+  and(
+    isnotblank(ACOlink),
+    isblank(CMIlink),
+    isblank(DSMElink)
+    ),
+    parentlookup("ACOlink", "Most Recent Phone"),
+    if(
+      and(
+        isblank(ACOlink),
+        isnotblank(CMIlink),
+        isblank(DSMElink)
+        ),
+        parentlookup("CMIlink", "Phone Number"),
+        if(
+          and(
+            isblank(ACOlink),
+            isblank(CMIlink),
+            isnotblank(DSMElink)
+            ),
+            parentlookup("DSMElink", "PatientPhoneNumber"),
+            if(
+              and(
+                isnotblank(ACOlink),
+                isnotblank(CMIlink),
+                isblank(DSMElink)
+                ),
+                parentlookup("CMIlink", "Phone Number"),
+                if(
+                  and(
+                    isnotblank(ACOlink),
+                    isblank(CMIlink),
+                    isnotblank(DSMElink)
+                    ),
+                    parentlookup("ACOlink", "Most Recent Phone"),
+                    if(
+                      and(
+                        isblank(ACOlink),
+                        isnotblank(CMIlink),
+                        isnotblank(DSMElink)
+                        ),
+                        parentlookup("CMIlink", "Phone Number"),
+                        if(
+                          and(
+                            isnotblank(ACOlink),
+                            isnotblank(CMIlink),
+                            isnotblank(DSMElink)
+                            ),
+                            parentlookup("CMIlink", "Phone Number"),
+                            ""
+                          ) 
+                        )
+                      )
+                    )
+                  )
+                )
+              )
