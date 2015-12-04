@@ -46,7 +46,7 @@ if(
                             isnotblank(CMIlink),
                             isnotblank(DSMElink)
                             ),
-                            parentlookup("ACOlink", "Last Name"),
+                            parentlookup("CMIlink", "Last Name"),
                             ""
                           ) 
                         )
