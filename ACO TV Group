@@ -95,8 +95,8 @@ if(
   and(
     PRACTICE="CAMcare",
     Source="Horizon"
-    ), 
-    "CAMcare", 
+  ), 
+  "CAMcare", 
 if( 
   PRACTICE="Cooper IM", 
   "UHI", 
@@ -109,12 +109,13 @@ if(
 if( 
   or(
       PRACTICE="Reliance Broadway",
-        PRACTICE="Reliance Pennsauken",
-          PRACTICE="Reliance River"
-        ), 
+      PRACTICE="Reliance Pennsauken",
+      PRACTICE="Reliance River"
+    ), 
   "Reliance", 
 if( 
-  PRACTICE="Osborn", "Osborn", 
+  PRACTICE="Osborn", 
+  "Osborn", 
 if( 
   PRACTICE="St. Lukes", 
   "StLukes", 
@@ -127,7 +128,8 @@ if(
 if( 
   and(
       PRACTICE="Virtua",
-        Source="Horizon"), 
-        "Virtua", 
+      Source="Horizon"
+    ), 
+  "Virtua", 
 "CCHP"
 ))))))))))))))))))))
