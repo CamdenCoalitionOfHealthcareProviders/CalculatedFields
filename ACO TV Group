@@ -1,0 +1,133 @@
+if( 
+  and(
+    PRACTICE="CAMcare",
+    Source="Horizon",
+    contains("Pediatric", GroupCalculationfromMPT)
+  ), 
+  "CAMcarePeds",
+if( 
+  and(
+    PRACTICE="Cooper Family", 
+    contains(",I,", GroupCalculationfromMPT),
+    contains("CUH", GroupCalculationfromMPT),
+    contains("Pediatric", GroupCalculationfromMPT)
+  ), 
+  "CooperFamilyPedsCUHInpatient", 
+if( 
+  and(
+    PRACTICE="Cooper Pediatrics",
+    contains(",I,", GroupCalculationfromMPT),
+    contains("CUH", GroupCalculationfromMPT),
+    contains("Pediatric", GroupCalculationfromMPT)
+    ), 
+  "CooperPediatricsCUHInpatient", 
+if( 
+  or( 
+    and(
+      PRACTICE="Reliance Broadway",
+      contains(",I,", GroupCalculationfromMPT),
+      contains("CUH", GroupCalculationfromMPT),
+      contains("Pediatric", GroupCalculationfromMPT)
+    ), 
+    and(
+      PRACTICE="Reliance Pennsauken",
+      contains(",I,", GroupCalculationfromMPT),
+      contains("CUH", GroupCalculationfromMPT),
+      contains("Pediatric", GroupCalculationfromMPT)
+    ), 
+    and(
+      PRACTICE="Reliance River",
+      contains(",I,", GroupCalculationfromMPT),
+      contains("CUH", GroupCalculationfromMPT),
+      contains("Pediatric", GroupCalculationfromMPT)
+    )
+  ), 
+  "RelianceCUHPedsInpatient", 
+if(  
+  and(
+    PRACTICE="Osborn",
+    contains(",I,", GroupCalculationfromMPT),
+    contains("CUH", GroupCalculationfromMPT),
+    contains("Pediatric", GroupCalculationfromMPT)
+  ), 
+  "OsbornCUHPedsInpatient", 
+if( 
+  and(
+    PRACTICE="St. Lukes",
+    contains(",I,", GroupCalculationfromMPT),
+    contains("CUH", GroupCalculationfromMPT),
+    contains("Pediatric", GroupCalculationfromMPT)
+  ), 
+  "StLukesCUHPedsInpatient", 
+if( 
+  and(
+    PRACTICE="Project Hope",
+    contains(",I,", GroupCalculationfromMPT),
+    contains("CUH", GroupCalculationfromMPT),
+    contains("Pediatric", GroupCalculationfromMPT)
+  ), 
+  "ProjectHopeCUHPedsInpatient", 
+if( 
+  and(
+    PRACTICE="Fairview",
+    contains(",I,", GroupCalculationfromMPT),
+    contains("CUH", GroupCalculationfromMPT),
+    contains("Pediatric", GroupCalculationfromMPT)
+  ), 
+  "FairviewCUHPedsInpatient", 
+if( 
+  and(
+    PRACTICE="Virtua",
+    Source="Horizon",
+    contains(",I,", GroupCalculationfromMPT),
+    contains("CUH", GroupCalculationfromMPT),
+    contains("Pediatric", GroupCalculationfromMPT)
+  ), 
+  "VirtuaCUHPedsInpatient", 
+if( 
+  and(
+    contains(",I,", GroupCalculationfromMPT),
+    contains("CUH", GroupCalculationfromMPT),
+    contains("Pediatric", GroupCalculationfromMPT)
+  ), 
+  "CCHPCUHpedsInpatient", 
+if( 
+  and(
+    PRACTICE="CAMcare",
+    Source="Horizon"
+    ), 
+    "CAMcare", 
+if( 
+  PRACTICE="Cooper IM", 
+  "UHI", 
+if( 
+  PRACTICE="Cooper Family", 
+  "CooperFamily", 
+if( 
+  PRACTICE="Cooper Pediatrics", 
+  "CooperPediatrics", 
+if( 
+  or(
+      PRACTICE="Reliance Broadway",
+        PRACTICE="Reliance Pennsauken",
+          PRACTICE="Reliance River"
+        ), 
+  "Reliance", 
+if( 
+  PRACTICE="Osborn", "Osborn", 
+if( 
+  PRACTICE="St. Lukes", 
+  "StLukes", 
+if( 
+  PRACTICE="Project Hope", 
+  "ProjectHope", 
+if( 
+  PRACTICE="Fairview", 
+  "Fairview", 
+if( 
+  and(
+      PRACTICE="Virtua",
+        Source="Horizon"), 
+        "Virtua", 
+"CCHP"
+))))))))))))))))))))
