@@ -1,0 +1,19 @@
+if( 
+  or( 
+    PRA Facility Created = "CAMcare East", 
+    PRA Facility Created = "Camcare Gateway", 
+    PRA Facility Created = "CAMcare Paulsboro", 
+    PRA Facility Created = "CamCare-Clementon" ), 
+  "CAMcareOB", 
+if( 
+  or( 
+    PRA Facility Created = "Lourdes Medical Associates at Osborn Family Health Center", 
+    PRA Facility Created = "OLOL-Osborn Family Health" ), 
+  "OsbornOB", 
+if( 
+  PRA Facility Created = "Jaffe Family Women's Care Center - Camden", 
+  "CooperOB",
+  "" 
+    )
+  )  
+) 
