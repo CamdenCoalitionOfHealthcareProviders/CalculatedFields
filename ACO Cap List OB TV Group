@@ -13,7 +13,7 @@ if(
 if( 
   childmax("3 Perinatal Risk Assessment TESTING", "HIEID", "FacilityAtLastPRA") = "Jaffe Family Women's Care Center - Camden", 
   "CooperOB",
-  "" 
+  "CCHP" 
     )
   )  
 ) 
