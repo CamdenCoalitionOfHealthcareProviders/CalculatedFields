@@ -6,9 +6,7 @@ if(
     FacilityAtLastPRA = "CamCare-Clementon" ), 
   "CAMcareOB", 
 if( 
-  or( 
-    FacilityAtLastPRA = "Lourdes Medical Associates at Osborn Family Health Center", 
-   FacilityAtLastPRA = "OLOL-Osborn Family Health" ), 
+   FacilityAtLastPRA = "OLOL-Osborn Family Health", 
   "OsbornOB", 
 if( 
   FacilityAtLastPRA = "Jaffe Family Women's Care Center - Camden", 
