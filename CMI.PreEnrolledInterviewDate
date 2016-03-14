@@ -1,15 +1,16 @@
 if(
   or(
     and(
+        not(parentlookup("UniqueID", "RCTStudyGroup")="Control"),
         isnotblank(parentlookup("UniqueID", "Pre-Enrollment Interview Date")),
         isblank(parentlookup("UniqueID", "Enrollment Date")),
-        isblank(parentlookup("UniqueID", "Reason Not Enrolled")),
-        not(parentlookup("UniqueID", "RCTStudyGroup")="Control")
+        isblank(parentlookup("UniqueID", "Reason Not Enrolled"))
         ),
     and(
       parentlookup("UniqueID", "RCTStudyGroup") = "Control",
       isnotblank(parentlookup("UniqueID", "Post Control Pre-Enrollment Interview Date")),
-      isblank(parentlookup("UniqueID", "Enrollment Date"))
+      isblank(parentlookup("UniqueID", "Enrollment Date")),
+      isblank(parentlookup("UniqueID", "Reason Not Enrolled"))
       )
     ),
   parentlookup("UniqueID", "Pre-Enrollment Interview Date"),
