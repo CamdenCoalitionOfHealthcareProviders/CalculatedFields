@@ -6,7 +6,9 @@ if(
     childmax("3 Perinatal Risk Assessment TESTING", "HIEID", "FacilityAtLastPRA") = "CamCare-Clementon" ), 
   "CAMcareOB", 
 if( 
-   childmax("3 Perinatal Risk Assessment TESTING", "HIEID", "FacilityAtLastPRA") = "OLOL-Osborn Family Health", 
+   or(
+    childmax("3 Perinatal Risk Assessment TESTING", "HIEID", "FacilityAtLastPRA") = "OLOL-Osborn Family Health", 
+    childmax("3 Perinatal Risk Assessment TESTING", "HIEID", "FacilityAtLastPRA") = "Lourdes Medical Associates at Osborn Family Health Center"),
   "OsbornOB", 
 if( 
   childmax("3 Perinatal Risk Assessment TESTING", "HIEID", "FacilityAtLastPRA") = "Jaffe Family Women's Care Center - Camden", 
