@@ -1,0 +1,40 @@
+### Taxi Voucher -> Drop Off Locations - Specialty
+# Field: Manager Approval
+
+if(or(
+	City = "Alomonesson", 
+	City = "Ashland",
+	City = "Audubon",
+	City = "Barrington",
+	City = "Bellmawr",
+	City = "Blackwood",
+	City = "Blenheim",
+	City = "Bridgeboro",
+	City = "Camden",
+	City = "Cherry Hill",
+	City = "Cinnaminson",
+	City = "Clementon",
+	City = "Glendora",
+	City = "Gloucester City",
+	City = "Grenloch",
+	City = "Haddon Heights",
+	City = "Haddonfield",
+	City = "Kirkwood",
+	City = "Lakeland",
+	City = "Laurel Springs",
+	City = "Lawnside",
+	City = "Lindenwold",
+	City = "Magnolia",
+	City = "Mantua",
+	City = "Merchantville",
+	City = "Moorestown",
+	City = "Mt Ephraim",
+	City = "National Park",
+	City = "Oaklyn",
+	City = "Palmyra",
+	City = "Thorofare",
+	),
+	"No", 
+	"Yes"
+)
+
