@@ -1,0 +1,10 @@
+if( 
+	AND(isblank(Internatal PCP Scheduled), isblank(Postpartum Visit Scheduled)), 
+	"Neither OB nor PCP Scheduled", 
+		if( 
+			AND(isblank(Internatal PCP Scheduled), ischecked(Postpartum Visit Scheduled, "Postpartum Visit Scheduled")), 
+			"OB Scheduled; No PCP Scheduled Yet", 
+			"PCP Scheduled; OB Not Scheduled Yet" 
+			) 
+)
+
