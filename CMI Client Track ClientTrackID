@@ -1,0 +1,7 @@
+if(
+  isnotblank(
+    RCT_ID
+    ), 
+    RCT_ID & "-" & EncounterCode & "-" & month(Encounter Date) & day(Encounter Date )& year(Encounter Date), 
+    Record Locator & "-" & EncounterCode & "-" & month(Encounter Date) & day(Encounter Date) & year(Encounter Date)
+  )
