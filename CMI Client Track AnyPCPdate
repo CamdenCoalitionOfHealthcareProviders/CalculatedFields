@@ -1,0 +1,12 @@
+if( 
+  and( 
+    Client Present = "Yes", 
+     or( 
+      Patient Encounter - Client Present = "Initial PCP Visit",  
+      Patient Encounter - Client Present = "PCP Visit", 
+      Patient Encounter - Client Present = "Re-engagement Initial PCP Visit" 
+      )
+     ), 
+   Encounter Date,
+   "" 
+)
